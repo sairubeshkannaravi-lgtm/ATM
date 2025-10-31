@@ -91,7 +91,7 @@ Your balance is: 12000.0
 ## 👨‍💻 Author
 **Rubeshkanna Ravichandran**  
 🎓 MCA Student | 💼 Aspiring Data Analyst  
-📧 your.email@example.com  
+📧 sairubeshkannaravi@gmail.com
 
 ---
 
