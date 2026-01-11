@@ -1,99 +1,103 @@
-# 🏦 ATM System (Python Project)
+# 🏦 ATM Management System using Python & MySQL
 
-## 🧾 Overview
-The **ATM System** is a simple console-based Python project that simulates basic ATM functionalities.  
-Users can check their balance, deposit and withdraw money, view mini statements, and change their PIN securely.
-
-This project helps beginners understand **Python programming fundamentals** such as loops, conditionals, and functions, along with the logic behind real-world ATM systems.
+A **console-based ATM application** developed using **Python** and **MySQL**, simulating real ATM operations such as balance inquiry, deposit, withdrawal, mini statement, and PIN change with secure database handling.
 
 ---
 
-## 🏗️ Features
-- 💳 User authentication (account number and PIN verification)  
-- 💰 Check account balance  
-- 💵 Deposit money  
-- 🏧 Withdraw money with balance validation  
-- 🧾 Mini statement (last 5 transactions)  
-- 🔐 Change PIN functionality  
-- 🚪 Secure exit from the system  
+## 📌 Features
+
+- 🔐 Secure Login using Account Number & PIN  
+- 💰 Check Account Balance  
+- ➕ Deposit Money  
+- ➖ Withdraw Money (with balance validation)  
+- 📄 Mini Statement (last 5 transactions)  
+- 🔑 Change ATM PIN  
+- 🗄️ MySQL Database Integration  
+- 🧾 Transaction History Storage  
 
 ---
 
-## 🧠 Concepts Used
-- **Functions** for modular code  
-- **Loops** and **conditionals** for user choices  
-- **Lists** for transaction history  
-- **String and input handling** for PIN and amount validation  
+## 🛠️ Technologies Used
+
+- **Python 3**
+- **MySQL**
+- **mysql-connector-python**
+- **SQL**
 
 ---
 
-## 🖥️ How to Run
+## 🗂️ Database Structure
 
-### Prerequisites
-- Python 3.7 or above installed on your system
+### 📋 `users` Table
+```sql
+CREATE TABLE users (
+    accnumber VARCHAR(20) PRIMARY KEY,
+    pin VARCHAR(10),
+    balance DOUBLE
+);
 
-### Steps
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/yourusername/atm-system.git
-   ```
-2. Navigate to the project directory:
-   ```bash
-   cd atm-system
-   ```
-3. Run the program:
-   ```bash
-   python atm_system.py
-   ```
+📋 transactions Table
+sql
+Copy code
+CREATE TABLE transactions (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    accnumber VARCHAR(20),
+    transaction_type VARCHAR(20),
+    amount DOUBLE,
+    trans_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
 
----
+⚙️ Installation & Setup
 
-## 🧾 Sample Output
+1️⃣ Install Required Package
+bash
+Copy code
+pip install mysql-connector-python
 
-```
-Welcome to ATM
-Enter Account Number: 7315262049
-Enter PIN: 242506
-Successfully logged in
-1. Account Balance
-2. Deposit Money
-3. Withdraw
-4. Mini Statement
-5. Change PIN
-6. Exit
-Enter choice: 2
-Enter deposit amount: 2000
-Deposited 2000
-Your balance is: 12000.0
-```
+2️⃣ Configure Database
+Create a database named atm_db
 
----
+Create users and transactions tables
 
-## 📦 Folder Structure
-```
-📁 ATM-System
-│
-├── atm_system.py      # Main Python script
-├── README.md          # Project documentation
-└── requirements.txt   # (optional, not required for this project)
-```
+Insert sample user data
 
----
+sql
+Copy code
+INSERT INTO users VALUES ('7315262049', '242506', 10000);
+3️⃣ Update Database Credentials
+Edit these values in the Python file if needed:
 
-## ⚙️ Default Login Details
-| Field | Value |
-|-------|--------|
-| Account Number | `7315262049` |
-| PIN | `242506` |
+python
+Copy code
+host="localhost"
+user="root"
+password="2452"
+database="atm_db"
+▶️ How to Run
+bash
+Copy code
+python atm.py
+Follow on-screen instructions to operate the ATM system.
 
----
+📸 Sample Operations
+Login Authentication
 
-## 👨‍💻 Author
-**Rubeshkanna Ravichandran**  
-🎓 MCA Student | 💼 Aspiring Data Analyst  
-📧 sairubeshkannaravi@gmail.com
+Deposit & Withdraw with real-time balance update
 
----
+Mini Statement showing last 5 transactions
 
-## 🪪 License
-This project is licensed under the **MIT License**.
+Secure PIN change
+
+🚀 Future Enhancements
+🔐 Password hashing for PIN security
+
+🖥️ GUI using Tkinter or Web App with Flask
+
+📊 Full transaction history view
+
+👥 Admin panel for account management
+
+👨‍💻 Author
+Rubeshkanna Ravichandran
+📊 Data Analyst Student
+🐍 Python | 🗄️ MySQL | 📈 Power BI
